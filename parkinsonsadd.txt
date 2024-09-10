@@ -1,0 +1,16 @@
+import pandas as pd
+
+# Sample DataFrame
+# parkinsons_data = pd.read_csv('your_data.csv')  # Example of loading your data
+
+# Ensure 'status' is a categorical or object column (not numeric)
+# Check the data types
+print(parkinsons_data.dtypes)
+
+# Select numeric columns only
+numeric_cols = parkinsons_data.select_dtypes(include='number')
+
+# Group by 'status' and calculate mean for numeric columns
+result = parkinsons_data.groupby('status')[numeric_cols.columns].mean()
+
+print(result)
